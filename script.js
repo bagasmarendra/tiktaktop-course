@@ -1,5 +1,5 @@
 // script.js - Final Version (Google Sheets Integration)
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec'; // GANTI!
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxYaaP7BCf1MSW4gwjkt85Cb0-8DYJZIHche6qYnzi9mqEtkhDim7mIcZ6VJB4quxufsA/exec'; // GANTI!
 
 document.addEventListener('DOMContentLoaded', function() {
     // Mobile Menu Toggle
@@ -75,86 +75,79 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // FORM SUBMISSION KE GOOGLE SHEETS
-    const form = document.getElementById('pendaftaranForm');
-    const formMessage = document.getElementById('formMessage');
-    
-    if (form) {
-        form.addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(form);
-            const data = {
-                nama: formData.get('nama'),
-                program: formData.get('program'),
-                nik: formData.get('nik'),
-                alamat: formData.get('alamat'),
-                whatsapp: formData.get('whatsapp')
-            };
-            
-            // Validasi
-            if (!data.nama || !data.program || !data.whatsapp) {
-                showFormMessage('❌ Harap isi Nama, Program, dan WhatsApp!', 'error');
-                return;
-            }
-            
-            // Validasi WhatsApp
-            if (!/^[0-9\+]{10,15}$/.test(data.whatsapp)) {
-                showFormMessage('❌ Format WhatsApp tidak valid!', 'error');
-                return;
-            }
-            
-            // Loading state
-            const submitBtn = form.querySelector('button[type="submit"]');
-            const originalBtnHTML = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> MENGIRIM...';
-            submitBtn.disabled = true;
-            
-            try {
-                // Kirim ke Google Sheets
-                const response = await fetch(GOOGLE_SCRIPT_URL, {
-                    method: 'POST',
-                    mode: 'no-cors', // Penting untuk bypass CORS
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(data)
-                });
-                
-                // Karena mode: 'no-cors', response terbatas
-                // Tapi data tetap terkirim ke Google Sheets
-                
-                // Simpan ke localStorage sebagai backup
-                saveToLocalStorage(data);
-                
-                // Tampilkan pesan sukses
-                showFormMessage('✅ Pendaftaran berhasil dikirim! Data Anda telah disimpan.', 'success');
-                
-                // Reset form
-                form.reset();
-                
-                // Log untuk debugging
-                console.log('📤 Data dikirim ke Google Sheets:', data);
-                
-                // Efek sukses
-                const formContainer = document.querySelector('.form-container');
-                formContainer.classList.add('success-glow');
-                setTimeout(() => formContainer.classList.remove('success-glow'), 2000);
-                
-            } catch (error) {
-                console.error('❌ Error:', error);
-                showFormMessage('⚠️ Gagal mengirim. Data disimpan lokal. Coba lagi nanti.', 'warning');
-                
-                // Simpan ke localStorage sebagai fallback
-                saveToLocalStorage(data);
-                
-            } finally {
-                // Reset button state
-                submitBtn.innerHTML = originalBtnHTML;
-                submitBtn.disabled = false;
-            }
-        });
+const form = document.getElementById('pendaftaranForm');
+const formMessage = document.getElementById('formMessage');
+
+if (form && formMessage) {
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+    const data = {
+      nama: (formData.get('nama') || '').trim(),
+      program: (formData.get('program') || '').trim(),
+      nik: (formData.get('nik') || '').trim(),
+      alamat: (formData.get('alamat') || '').trim(),
+      whatsapp: (formData.get('whatsapp') || '').trim()
+    };
+
+    if (!data.nama || !data.program || !data.whatsapp) {
+      showFormMessage('❌ Harap isi Nama, Program, dan WhatsApp!', 'error');
+      return;
     }
+
+    if (!/^[0-9\+]{10,15}$/.test(data.whatsapp)) {
+      showFormMessage('❌ Format WhatsApp tidak valid!', 'error');
+      return;
+    }
+
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalBtnHTML = submitBtn ? submitBtn.innerHTML : '';
+
+    if (submitBtn) {
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> MENGIRIM...';
+      submitBtn.disabled = true;
+    }
+
+    try {
+      // ✅ kirim sebagai urlencoded (lebih aman untuk no-cors)
+      const body = new URLSearchParams(data);
+
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+        },
+        body
+      });
+
+      saveToLocalStorage(data);
+      showFormMessage('✅ Pendaftaran berhasil dikirim! Data Anda telah disimpan.', 'success');
+      form.reset();
+
+      const formContainer = document.querySelector('.form-container');
+      if (formContainer) {
+        formContainer.classList.add('success-glow');
+        setTimeout(() => formContainer.classList.remove('success-glow'), 2000);
+      }
+
+      console.log('📤 Data dikirim ke Google Sheets:', data);
+
+    } catch (error) {
+      console.error('❌ Error:', error);
+      showFormMessage('⚠️ Gagal mengirim. Data disimpan lokal. Coba lagi nanti.', 'warning');
+      saveToLocalStorage(data);
+
+    } finally {
+      if (submitBtn) {
+        submitBtn.innerHTML = originalBtnHTML;
+        submitBtn.disabled = false;
+      }
+    }
+  });
+}
+
     
     // Fungsi tampilkan pesan form
     function showFormMessage(message, type) {
