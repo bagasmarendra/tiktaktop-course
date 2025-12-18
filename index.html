@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tik Tak Top Course</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cyberpunk-glitch.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar cyberpunk-border">
+        <div class="nav-container">
+            <div class="logo-container">
+                <div class="logo glitch" data-text="TIK TAK TOP">TIK TAK TOP</div>
+                <div class="logo-subtitle">COURSE OF THE FUTURE</div>
+            </div>
+            
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link active"><i class="fas fa-home"></i> <span class="link-text">Home</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link"><i class="fas fa-info-circle"></i> <span class="link-text">About</span></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#layanan" class="nav-link dropdown-toggle">
+                        <i class="fas fa-concierge-bell"></i> <span class="link-text">Layanan</span> <i class="fas fa-chevron-down dropdown-icon"></i>
+                    </a>
+                    <div class="dropdown-menu cyberpunk-border">
+                        <a href="#pendaftaran" class="dropdown-item"><i class="fas fa-user-plus"></i> Pendaftaran Anggota</a>
+                        <a href="#informasi" class="dropdown-item"><i class="fas fa-info-circle"></i> Informasi Layanan</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="#kelas" class="nav-link"><i class="fas fa-laptop-code"></i> <span class="link-text">Kelas</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="#koleksi" class="nav-link"><i class="fas fa-archive"></i> <span class="link-text">Koleksi</span></a>
+                </li>
+            </ul>
+            
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Jumbotron/Home Section -->
+    <section id="home" class="section jumbotron">
+        <div class="container">
+            <div class="jumbotron-content">
+                <h1 class="jumbotron-title glitch" data-text="SELAMAT DATANG DI TIK TAK TOP COURSE">SELAMAT DATANG DI TIK TAK TOP COURSE</h1>
+                <p class="jumbotron-subtitle">Tempat di mana masa depan digital dimulai</p>
+                <div class="cyber-grid"></div>
+                <div class="scanline"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section cyberpunk-section">
+        <div class="container">
+            <h2 class="section-title"><span class="title-number">01</span> TENTANG KAMI</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="cyberpunk-text">Tik Tak Top Course adalah lembaga kursus komputer terdepan dalam pelatihan teknologi digital. Didirikan pada tahun 2025 di Depok, Jawa Barat, kami telah melatih lebih dari 1,000 profesional digital yang siap menghadapi tantangan era cyber.</p>
+                    <div class="stats">
+                        <div class="stat">
+                            <div class="stat-number glitch" data-text="1000+">1000+</div>
+                            <div class="stat-label">Siswa Terlatih</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number glitch" data-text="15">15</div>
+                            <div class="stat-label">Program Kursus</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number glitch" data-text="98%">98%</div>
+                            <div class="stat-label">Kepuasan Siswa</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="cyber-card cyberpunk-border">
+                        <div class="cyber-card-header">
+                            <h3><i class="fas fa-terminal"></i> VISI KAMI</h3>
+                        </div>
+                        <div class="cyber-card-content">
+                            <p>Menciptakan generasi yang mampu bersaing di era digital dan seterusnya.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Layanan Section -->
+    <section id="layanan" class="section">
+        <div class="container">
+            <h2 class="section-title"><span class="title-number">02</span> LAYANAN</h2>
+            
+            <!-- Pendaftaran Anggota -->
+            <div id="pendaftaran" class="service-section">
+                <h3 class="subsection-title glitch" data-text="PENDAFTARAN ANGGOTA">PENDAFTARAN ANGGOTA</h3>
+                <div class="form-container cyberpunk-border">
+                    <form id="pendaftaranForm" action="form-handler.php" method="POST">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="nama" class="form-label"><i class="fas fa-id-card"></i> NAMA LENGKAP</label>
+                                <input type="text" id="nama" name="nama" class="form-input cyberpunk-input" required>
+                                <div class="input-line"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="program" class="form-label"><i class="fas fa-laptop-code"></i> PROGRAM KURSUS</label>
+                                <select id="program" name="program" class="form-input cyberpunk-input" required>
+                                    <option value="" disabled selected>PILIH PROGRAM</option>
+                                    <option value="Desain Grafis">Desain Grafis</option>
+                                    <option value="Web Programming">Web Programming</option>
+                                    <option value="Data Analysis">Data Analysis</option>
+                                    <option value="Cyber Security">Cyber Security</option>
+                                    <option value="AI & Machine Learning">AI & Machine Learning</option>
+                                    <option value="Game Development">Game Development</option>
+                                </select>
+                                <div class="input-line"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="nik" class="form-label"><i class="fas fa-fingerprint"></i> NIK / NOMOR INDUK SISWA</label>
+                                <input type="text" id="nik" name="nik" class="form-input cyberpunk-input" required>
+                                <div class="input-line"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="alamat" class="form-label"><i class="fas fa-map-marker-alt"></i> ALAMAT</label>
+                                <textarea id="alamat" name="alamat" class="form-input cyberpunk-input textarea" rows="3" required></textarea>
+                                <div class="input-line"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="whatsapp" class="form-label"><i class="fab fa-whatsapp"></i> NOMOR WHATSAPP</label>
+                                <input type="tel" id="whatsapp" name="whatsapp" class="form-input cyberpunk-input" required>
+                                <div class="input-line"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-footer">
+                            <button type="submit" class="cyberpunk-button">
+                                <span class="button-text">KIRIM PENDAFTARAN</span>
+                                <span class="button-icon"><i class="fas fa-paper-plane"></i></span>
+                                <span class="button-glitch"></span>
+                            </button>
+                            <div id="formMessage" class="form-message"></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Informasi Layanan -->
+            <div id="informasi" class="service-section">
+                <h3 class="subsection-title glitch" data-text="INFORMASI LAYANAN">INFORMASI LAYANAN</h3>
+                <div class="info-grid">
+                    <div class="info-card cyberpunk-border">
+                        <div class="info-card-icon">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                        <h4>KEAMANAN DATA</h4>
+                        <p>Data peserta dienkripsi dengan teknologi blockchain untuk keamanan maksimal.</p>
+                    </div>
+                    
+                    <div class="info-card cyberpunk-border">
+                        <div class="info-card-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h4>FLEKSIBEL WAKTU</h4>
+                        <p>Kelas tersedia pagi, siang, dan malam sesuai jadwal Anda.</p>
+                    </div>
+                    
+                    <div class="info-card cyberpunk-border">
+                        <div class="info-card-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h4>SERTIFIKAT RESMI</h4>
+                        <p>Dapatkan sertifikat yang diakui industri setelah menyelesaikan kursus.</p>
+                    </div>
+                    
+                    <div class="info-card cyberpunk-border">
+                        <div class="info-card-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h4>DUKUNGAN 24/7</h4>
+                        <p>Tim instruktur siap membantu Anda kapan saja melalui platform digital.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kelas Section -->
+    <section id="kelas" class="section cyberpunk-section">
+        <div class="container">
+            <h2 class="section-title"><span class="title-number">03</span> KELAS / PROGRAM KURSUS</h2>
+            <div class="kelas-grid">
+                <div class="kelas-card cyberpunk-border">
+                    <div class="kelas-card-header">
+                        <h3><i class="fab fa-html5"></i> KELAS DASAR WEB</h3>
+                        <span class="kelas-badge">POPULER</span>
+                    </div>
+                    <div class="kelas-card-content">
+                        <p>Pelajari HTML, CSS, JavaScript dari dasar. Buat website pertama Anda dalam 4 minggu.</p>
+                        <ul class="kelas-list">
+                            <li><i class="fas fa-check-circle"></i> 16 Sesi Pertemuan</li>
+                            <li><i class="fas fa-check-circle"></i> Proyek Akhir Website</li>
+                            <li><i class="fas fa-check-circle"></i> Sertifikat Penyelesaian</li>
+                        </ul>
+                    </div>
+                    <div class="kelas-card-footer">
+                        <span class="kelas-price">Rp 1.200.000</span>
+                    </div>
+                </div>
+                
+                <div class="kelas-card cyberpunk-border">
+                    <div class="kelas-card-header">
+                        <h3><i class="fab fa-python"></i> KELAS PYTHON PEMULA</h3>
+                        <span class="kelas-badge">TERBARU</span>
+                    </div>
+                    <div class="kelas-card-content">
+                        <p>Pengenalan pemrograman dengan Python. Sempurna untuk analisis data dan automasi.</p>
+                        <ul class="kelas-list">
+                            <li><i class="fas fa-check-circle"></i> 20 Sesi Pertemuan</li>
+                            <li><i class="fas fa-check-circle"></i> 5 Proyek Praktis</li>
+                            <li><i class="fas fa-check-circle"></i> Mentor Eksklusif</li>
+                        </ul>
+                    </div>
+                    <div class="kelas-card-footer">
+                        <span class="kelas-price">Rp 1.500.000</span>
+                    </div>
+                </div>
+                
+                <div class="kelas-card cyberpunk-border">
+                    <div class="kelas-card-header">
+                        <h3><i class="fas fa-chart-line"></i> KELAS EXCEL UNTUK DATA</h3>
+                        <span class="kelas-badge">TERLARIS</span>
+                    </div>
+                    <div class="kelas-card-content">
+                        <p>Kuasi teknik analisis data dengan Excel. Pivot Tables, Formulas, dan Data Visualization.</p>
+                        <ul class="kelas-list">
+                            <li><i class="fas fa-check-circle"></i> 12 Sesi Pertemuan</li>
+                            <li><i class="fas fa-check-circle"></i> Dataset Real-World</li>
+                            <li><i class="fas fa-check-circle"></i> Sertifikat Microsoft</li>
+                        </ul>
+                    </div>
+                    <div class="kelas-card-footer">
+                        <span class="kelas-price">Rp 800.000</span>
+                    </div>
+                </div>
+                
+                <div class="kelas-card cyberpunk-border">
+                    <div class="kelas-card-header">
+                        <h3><i class="fas fa-paint-brush"></i> DESAIN GRAFIS DIGITAL</h3>
+                    </div>
+                    <div class="kelas-card-content">
+                        <p>Master Adobe Photoshop, Illustrator, dan InDesign untuk desain profesional.</p>
+                        <ul class="kelas-list">
+                            <li><i class="fas fa-check-circle"></i> 18 Sesi Pertemuan</li>
+                            <li><i class="fas fa-check-circle"></i> Portfolio Building</li>
+                            <li><i class="fas fa-check-circle"></i> Tools Lisensi Gratis</li>
+                        </ul>
+                    </div>
+                    <div class="kelas-card-footer">
+                        <span class="kelas-price">Rp 1.400.000</span>
+                    </div>
+                </div>
+                
+                <div class="kelas-card cyberpunk-border">
+                    <div class="kelas-card-header">
+                        <h3><i class="fas fa-shield-alt"></i> CYBER SECURITY DASAR</h3>
+                    </div>
+                    <div class="kelas-card-content">
+                        <p>Pelajari dasar-dasar keamanan siber, ethical hacking, dan proteksi jaringan.</p>
+                        <ul class="kelas-list">
+                            <li><i class="fas fa-check-circle"></i> 24 Sesi Pertemuan</li>
+                            <li><i class="fas fa-check-circle"></i> Lab Virtual</li>
+                            <li><i class="fas fa-check-circle"></i> Sertifikasi Keamanan</li>
+                        </ul>
+                    </div>
+                    <div class="kelas-card-footer">
+                        <span class="kelas-price">Rp 2.000.000</span>
+                    </div>
+                </div>
+                
+                <div class="kelas-card cyberpunk-border">
+                    <div class="kelas-card-header">
+                        <h3><i class="fas fa-robot"></i> AI & MACHINE LEARNING</h3>
+                        <span class="kelas-badge">ADVANCED</span>
+                    </div>
+                    <div class="kelas-card-content">
+                        <p>Pengenalan kecerdasan buatan, neural networks, dan machine learning models.</p>
+                        <ul class="kelas-list">
+                            <li><i class="fas fa-check-circle"></i> 30 Sesi Pertemuan</li>
+                            <li><i class="fas fa-check-circle"></i> Proyek AI Real</li>
+                            <li><i class="fas fa-check-circle"></i> Akses GPU Cloud</li>
+                        </ul>
+                    </div>
+                    <div class="kelas-card-footer">
+                        <span class="kelas-price">Rp 2.500.000</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Koleksi Section -->
+    <section id="koleksi" class="section">
+        <div class="container">
+            <h2 class="section-title"><span class="title-number">04</span> KOLEKSI</h2>
+            <div class="koleksi-content">
+                <div class="koleksi-text">
+                    <h3>Digital Learning Resources</h3>
+                    <p>Kami memiliki koleksi materi pembelajaran digital terbesar di kota, termasuk:</p>
+                    <div class="koleksi-list">
+                        <div class="koleksi-item">
+                            <i class="fas fa-video"></i>
+                            <span>500+ Video Tutorial HD</span>
+                        </div>
+                        <div class="koleksi-item">
+                            <i class="fas fa-book"></i>
+                            <span>200+ E-Book & Dokumentasi</span>
+                        </div>
+                        <div class="koleksi-item">
+                            <i class="fas fa-code"></i>
+                            <span>1000+ Source Code Contoh</span>
+                        </div>
+                        <div class="koleksi-item">
+                            <i class="fas fa-database"></i>
+                            <span>50+ Dataset untuk Latihan</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="koleksi-visual">
+                    <div class="cyber-cube"></div>
+                    <div class="data-stream">
+                        <div class="stream-line"></div>
+                        <div class="stream-line"></div>
+                        <div class="stream-line"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer cyberpunk-border">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3 class="footer-title glitch" data-text="TIK TAK TOP">TIK TAK TOP</h3>
+                    <p class="footer-text">Lembaga kursus komputer terdepan untuk era digital.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4 class="footer-subtitle">ALAMAT</h4>
+                    <div class="footer-info">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>Jl. Depok No. 130406,<br>Depok, Jawa Barat,<br>16424</p>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4 class="footer-subtitle">KONTAK</h4>
+                    <div class="footer-info">
+                        <i class="fas fa-phone"></i>
+                        <p>+62 878-7656-4405</p>
+                    </div>
+                    <div class="footer-info">
+                        <i class="fas fa-envelope"></i>
+                        <p>info@tiktaktop.course</p>
+                    </div>
+                    <div class="footer-info">
+                        <i class="fas fa-clock"></i>
+                        <p>Senin - Jumat: 08:00 - 22:00<br>Sabtu - Minggu: 09:00 - 17:00</p>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4 class="footer-subtitle">NEWSLETTER</h4>
+                    <p class="footer-text">Dapatkan info terbaru tentang kursus dan promo spesial.</p>
+                    <div class="newsletter-form">
+                        <input type="email" class="newsletter-input" placeholder="Email Anda">
+                        <button class="newsletter-button">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Tik Tak Top Course. All rights reserved. | <span class="glitch-text">BAGASKARA PUTERA MARENDRA</span></p>
+                <p class="credits">Mata Kuliah: Praktikum Sistem Informasi Manajemen | Prodi/Kelas: Statistika/B | Dosen: Ghiffari Ahnaf Danarwindu, M.Sc.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
