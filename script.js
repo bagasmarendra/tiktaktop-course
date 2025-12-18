@@ -1,6 +1,5 @@
 // script.js - Final Version (Google Sheets Integration)
-const GOOGLE_SCRIPT_URL =
-  'https://script.google.com/macros/s/AKfycbxYaaP7BCf1MSW4gwjkt85Cb0-8DYJZIHche6qYnzi9mqEtkhDim7mIcZ6VJB4quxufsA/exec';
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxYaaP7BCf1MSW4gwjkt85Cb0-8DYJZIHche6qYnzi9mqEtkhDim7mIcZ6VJB4quxufsA/exec';
 
 document.addEventListener('DOMContentLoaded', function () {
   // Mobile Menu Toggle
